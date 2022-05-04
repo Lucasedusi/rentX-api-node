@@ -3,7 +3,7 @@ import { IUsersRepository } from "@modules/accounts/repositories/IUsersRepositor
 
 import { inject, injectable } from "tsyringe";
 import { hash } from "bcryptjs";
-import { AppError } from "@errors/AppError";
+import { AppError } from "@shared/errors/AppError";
 
 @injectable()
 class CreateUserUseCase {

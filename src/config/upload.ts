@@ -1,5 +1,5 @@
-import multer from "multer";
-import crypto from "crypto";
+import crypto = require("crypto");
+import multer = require("multer");
 import { resolve } from "path";
 
 export default {
