@@ -6,7 +6,6 @@
 
   **REGRA DE NEGÓCIO**<br>
     - Não deve ser possível cadastrar um carro com uma placa já existente.<br>
-    - Não deve ser possível alterar a placa de um carro já cadastrado.<br>
     - O carro deve ser cadastrado, por padrão, disponibilidade.<br>
     - O usuário responsável pelo cadastro deve ser um usuário administrador.<br>
 

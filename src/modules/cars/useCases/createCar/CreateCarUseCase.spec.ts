@@ -12,7 +12,7 @@ describe("Create Car", () => {
   });
 
   it("Should be able create a new car", async () => {
-    await createCarUseCase.execute({
+    const car = await createCarUseCase.execute({
       name: "Name Car",
       description: "Description Car",
       daily_rate: 100,
@@ -21,6 +21,8 @@ describe("Create Car", () => {
       brand: "Branda",
       category_id: "category",
     });
+
+    expect(car).toHaveProperty("id");
   });
 
   it("Should not be able to create a car with exists licence plate", () => {
@@ -45,5 +47,19 @@ describe("Create Car", () => {
         category_id: "category",
       });
     }).rejects.toBeInstanceOf(AppError);
+  });
+
+  it("Should not be able to create a car with available true by default", async () => {
+    const car = await createCarUseCase.execute({
+      name: "Car Available",
+      description: "Description Car",
+      daily_rate: 100,
+      licence_plate: "ABCDE-1234",
+      fine_amount: 60,
+      brand: "Branda",
+      category_id: "category",
+    });
+
+    expect(car.available).toBe(true);
   });
 });
