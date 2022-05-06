@@ -1,10 +1,10 @@
 import "reflect-metadata";
 import express = require("express");
+import "express-async-errors";
+
 import { Request, Response, NextFunction } from "express";
 import { router } from "./routes";
 import { AppError } from "@shared/errors/AppError";
-
-import "express-async-errors";
 
 import createConnection from "@shared/infra/typeorm";
 import swaggerUi = require("swagger-ui-express");
