@@ -8,10 +8,10 @@ import { usersRoutes } from "./users.routes";
 
 const router = Router();
 
-router.use(autenthicateRoutes);
-router.use("/cars", carsRoutes);
-router.use("/users", usersRoutes);
 router.use("/categories", categoriesRoutes);
 router.use("/specifications", specificationsRoutes);
+router.use("/users", usersRoutes);
+router.use("/cars", carsRoutes);
+router.use(autenthicateRoutes);
 
 export { router };

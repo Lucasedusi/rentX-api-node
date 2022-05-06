@@ -37,7 +37,7 @@ class AuthenticateUserUseCase {
       throw new AppError("Email or Password incorrect");
     }
 
-    const token = sign({}, "5e81ae798e9641d8208c33c71bce17bb", {
+    const token = sign({}, "dc53fc4f621c80bdc2fa0329a6123708", {
       subject: user.id,
       expiresIn: "1d",
     });
