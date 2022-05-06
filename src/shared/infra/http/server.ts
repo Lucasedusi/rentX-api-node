@@ -6,13 +6,13 @@ import { AppError } from "@shared/errors/AppError";
 
 import "express-async-errors";
 
+import createConnection from "@shared/infra/typeorm";
 import swaggerUi = require("swagger-ui-express");
 import swaggerFile = require("../../../swagger.json");
 
-import "../typeorm";
-
 import "@shared/container";
 
+createConnection();
 const app = express();
 
 app.use(express.json());
