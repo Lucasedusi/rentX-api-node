@@ -21,9 +21,12 @@ describe("Create Car Specification", () => {
   it("should not be able add a new specification a now-existent car", async () => {
     expect(async () => {
       const car_id = "1234";
-      const specification_id = ["54321"];
+      const specifications_id = ["54321"];
 
-      await createCarSpecificationUseCase.execute({ car_id, specification_id });
+      await createCarSpecificationUseCase.execute({
+        car_id,
+        specifications_id,
+      });
     }).rejects.toBeInstanceOf(AppError);
   });
 
@@ -38,11 +41,19 @@ describe("Create Car Specification", () => {
       category_id: "category",
     });
 
-    const specification_id = ["54321"];
-
-    await createCarSpecificationUseCase.execute({
-      car_id: car.id,
-      specification_id,
+    const specification = await specificationsRepositoryInMemory.create({
+      description: "teste",
+      name: "Teste",
     });
+
+    const specifications_id = [specification.id];
+
+    const specificationsCars = await createCarSpecificationUseCase.execute({
+      car_id: car.id,
+      specifications_id,
+    });
+
+    expect(specificationsCars).toHaveProperty("specifications");
+    expect(specificationsCars.specifications.length).toBe(1);
   });
 });

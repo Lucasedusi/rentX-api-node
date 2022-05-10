@@ -5,7 +5,7 @@ import {
   TableForeignKey,
 } from "typeorm";
 
-export class CreateSpecificationsCars1652125553641
+export class CreateSpecificationsCars1652211661045
   implements MigrationInterface
 {
   public async up(queryRunner: QueryRunner): Promise<void> {
@@ -18,7 +18,7 @@ export class CreateSpecificationsCars1652125553641
             type: "uuid",
           },
           {
-            name: "specifications_id",
+            name: "specification_id",
             type: "uuid",
           },
           {
@@ -36,7 +36,7 @@ export class CreateSpecificationsCars1652125553641
         name: "FKSpecificationsCar",
         referencedTableName: "specifications",
         referencedColumnNames: ["id"],
-        columnNames: ["specifications_id"],
+        columnNames: ["specification_id"],
         onDelete: "SET NULL",
         onUpdate: "SET NULL",
       })
