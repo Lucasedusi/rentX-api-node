@@ -18,6 +18,7 @@ class CarsRepository implements ICarsRepository {
     brand,
     license_plate,
     category_id,
+    specifications,
   }: ICreateCarDTO): Promise<Car> {
     const car = this.repository.create({
       name,
@@ -27,6 +28,7 @@ class CarsRepository implements ICarsRepository {
       fine_amount,
       brand,
       category_id,
+      specifications,
     });
 
     await this.repository.save(car);
@@ -65,8 +67,10 @@ class CarsRepository implements ICarsRepository {
     return cars;
   }
 
-  findById(): Promise<Car> {
-    throw new Error("Method not implemented.");
+  async findById(id: string): Promise<Car> {
+    const car = await this.repository.findOne(id);
+
+    return car;
   }
 }
 
