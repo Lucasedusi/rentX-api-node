@@ -1,5 +1,5 @@
 import { IRentalsRepository } from "@modules/rentals/repositories/IRentalsRepository";
-import { Rental } from "@modules/rentals/typeorm/entities/Rental";
+import { Rental } from "@modules/rentals/infra/typeorm/entities/Rental";
 import { IDateProvider } from "@shared/container/providers/DateProvider/IDateProvider";
 import { AppError } from "@shared/errors/AppError";
 
