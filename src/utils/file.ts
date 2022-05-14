@@ -1,4 +1,4 @@
-import fs from "fs";
+import fs = require("fs");
 
 export const deleteFile = async (filename: string) => {
   try {
