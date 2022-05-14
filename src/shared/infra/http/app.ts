@@ -35,4 +35,4 @@ app.use(
   }
 );
 
-app.listen(3333, () => console.log("Server is Running"));
+export { app };
